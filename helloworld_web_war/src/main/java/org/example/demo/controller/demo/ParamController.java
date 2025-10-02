@@ -1,6 +1,7 @@
 package org.example.demo.controller.demo;
 
 import org.example.demo.model.UserModel;
+import org.noear.solon.annotation.Body;
 import org.noear.solon.annotation.Controller;
 import org.noear.solon.annotation.Mapping;
 import org.noear.solon.core.handle.Context;
@@ -27,12 +28,12 @@ public class ParamController {
 
     //请求参数（可以是整装的结构体；支持 queryString, form；json，或支持的其它序列化格式Mapping
     @Mapping("case3")
-    public void case3(UserModel user){
+    public void case3(@Body UserModel user){
     }
 
-    //也可以是混搭的
+    //也可以是混搭的（混搭时，不利于 swagger 生成）
     @Mapping("case4")
-    public void case4(Context ctx, UserModel user, String userName){
+    public void case4(Context ctx, @Body UserModel user, String userName){
     }
 
     //文件上传

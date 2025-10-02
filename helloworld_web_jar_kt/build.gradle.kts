@@ -17,7 +17,7 @@ description = "Demo project for Solon"
 
 
 dependencies {
-    implementation(platform("org.noear:solon-parent:3.5.4"))
+    implementation(platform("org.noear:solon-parent:3.6.0"))
     
     implementation("org.noear:solon-web")
     implementation("org.noear:solon-view-freemarker")

@@ -11,9 +11,10 @@ import java.math.BigDecimal
 @Configuration
 class JsonConfigure {
     @Bean
-    fun init(@Inject factory: SnackRenderFactory) {
-        factory.config().add(Feature.EnumUsingName)
-        factory.addConvertor(Long::class.java) { `val`: Long -> `val`.toString() }
-        factory.addConvertor(BigDecimal::class.java) { `val`: BigDecimal -> `val`.toPlainString() }
+    fun init(serializer: SnackStringSerializer) {
+        serializer.getSerializeConfig().addFeatures(Feature.EnumUsingName)
+
+        serializer.addEncoder(Long::class.java) { `val`: Long -> `val`.toString() }
+        serializer.addEncoder(BigDecimal::class.java) { `val`: BigDecimal -> `val`.toPlainString() }
     }
 }
